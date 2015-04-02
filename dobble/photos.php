@@ -1,16 +1,20 @@
 <?php
 require('core/init.php');
 
-//Create objects...
+$_SESSION['count'] = 0;
 
+//Create objects...
+$group = new Group;
+
+$stockPhoto = new stockPhoto;
 
 //Create template object
 $template = new Template('templates/photos.php');
 
 //assign variables to the template object
-//$template->topics = $topic->getAllTopics();
+$template->groups = $group->getAllGroups();
 //....
-//....
+$template->stockPhotos = $stockPhoto->getAllStockPhotos();
 //....
 
 //display template

@@ -2,7 +2,7 @@
 
 class Post {
 	//Initialize DB variable
-	public $db;
+	private $db;
 
 	/*
 	*	Constructor
@@ -19,6 +19,24 @@ class Post {
 						 FROM 		posts
 						 LEFT JOIN 	users
 						 ON 		posts.user_id = users.id");
+		//Assign Result Set
+		$results = $this->db->resultset();
+
+		return $results;
+	}
+
+	/*
+	*	 Get All Replies
+	*/
+	public function getReplies(){
+		$this->db->query("SELECT 	posts.*, replies.*
+						 FROM 		replies
+						 INNER JOIN posts
+						 ON 		posts.id = replies.post_id
+						 ");
+
+		//$this->db->bind(':post_id', $post_id);
+
 		//Assign Result Set
 		$results = $this->db->resultset();
 
