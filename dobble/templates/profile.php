@@ -1,23 +1,28 @@
 <?php include('includes/header.php'); ?>
 
+    <?php 
+      if(!isLoggedIn())
+        redirect('index.php');
+    ?>
+  
     <section>
       <div class="container">
         <div class="row">
           <div class="col-md-8">
             <div class="profile">
-              <h1 class="page-header">John Doe</h1>
+              <h1 class="page-header"><?= getUser()['name']; ?></h1>
               <div class="row">
                 <div class="col-md-4">
                   <img src="img/user.png" class="img-thumbnail">
                 </div>
                 <div class="col-md-8">
                   <ul>
-                    <li><strong>Name:</strong> John Doe</li>
-                    <li><strong>Email Address: </strong>johndoe@gmail.com</li>
-                    <li><strong>City: </strong>Boston</li>
-                    <li><strong>State: </strong>Massachusetts</li>
-                    <li><strong>Gender:</strong> Male</li>
-                    <li><strong>Profession: </strong>Web Developer</li>
+                    <li><strong>Name:</strong> <?= getUser()['name']; ?></li>
+                    <li><strong>Email Address: </strong><?= getUser()['email']; ?></li>
+                    <li><strong>About: </strong><?= getUser()['about']; ?></li>
+                    <li><strong>State: </strong><?= getUser()['state']; ?></li>
+                    <li><strong>Gender:</strong> <?= getUser()['gender']; ?></li>
+                    <li><strong>Profession: </strong><?= getUser()['profession']; ?></li>
                   </ul>
 
                 </div>

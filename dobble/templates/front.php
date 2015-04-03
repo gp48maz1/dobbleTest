@@ -6,9 +6,11 @@
           <div class="col-md-8">
             <div class="panel panel-default">
               <div class="panel-heading">
-
-                <h3 class="panel-title">USER feel free to make a post!</h3>
-
+                <?php if(!isLoggedIn()) : ?>
+                  <h3 class="panel-title">Sign In / Register so you can make a post!</h3>
+                <?php else : ?>
+                  <h3 class="panel-title"><?= getUser()['username']; ?> feel free to make a post!</h3>
+                <?php endif ?>
               </div>
               <div class="panel-body">
                 <form>

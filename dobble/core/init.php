@@ -7,6 +7,7 @@ require_once('config/config.php');
 
 //helper functions
 require_once('helpers/photo_helper.php');
+require_once('helpers/system_helper.php');
 //...
 //...
 
